@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Programari SMS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Setare mesaj de transmis catre pacienti</h3>
+    <ion-item>
+      <ion-label stacked>Mesajul Dumeavoastra</ion-label>
+      <ion-textarea [(ngModel)]="text.message">{{text.message}}</ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Numar de telefon</ion-label>
+      <ion-textarea [(ngModel)]="text.number">{{text.number}}</ion-textarea>
+    </ion-item>
+
+
+<button ion-button secondary menuToggle>Programari</button>
+<button ion-button icon-left clear item-right (click)="sendTextMessage()">Trimite Messaj</button>
+</ion-content>
