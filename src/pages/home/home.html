@@ -1,4 +1,5 @@
 <ion-header>
+
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -10,13 +11,13 @@
 <ion-content padding>
   <h3>Setare mesaj de transmis catre pacienti</h3>
     <ion-item>
-      <ion-label stacked>Mesajul Dumeavoastra</ion-label>
+      <ion-label floating>Mesajul Dumeavoastra</ion-label>
       <ion-textarea [(ngModel)]="text.message">{{text.message}}</ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Numar de telefon</ion-label>
-      <ion-textarea [(ngModel)]="text.number">{{text.number}}</ion-textarea>
+      <ion-label floating>Numar de telefon</ion-label>
+      <ion-input [(ngModel)]="text.number">{{text.number}}</ion-input>
     </ion-item>
 
 

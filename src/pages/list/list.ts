@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Calendar } from '@ionic-native/calendar';
+import { DatePicker } from '@ionic-native/date-picker';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
+  providers: [Calendar, DatePicker]
 })
 export class ListPage {
   selectedItem: any;
@@ -12,26 +15,68 @@ export class ListPage {
   phones: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  appoiment = {
+   name: "",
+   number: "",
+   info:""
+  };
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    this.names = ['Mihai', 'Marius', 'Steluta', 'Ana', 'Petru', 'Eric'];
-    this.phones =['0742407620','0999099','0023123','232131','12312','1231'];
 
-    for (let i = 0; i < this.names.length; i++) {
-      this.items.push({
-        title: this.names[i],
-        note: 'Numar de telefon: ' + this.phones[i],
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public calendar: Calendar, private datePicker: DatePicker ) {
+
+
+    this.calendar.createCalendar('NoiProgramari').then(
+     (msg) => { console.log(msg); },
+     (err) => { console.log(err); }
+   );
+
+
   }
+
+
+
+  // CODE FOR LOCAL CALENDAR _ IT CAB ONLY CREATES CALENDAR BUT IT CANT ADD EVENTS ON S7
+
+
+   startDate(){
+      this.datePicker.show({
+        date: new Date(),
+        mode: 'datetime',
+        androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK,
+        allowOldDates: false
+      }).then(
+      date => console.log('Got date: ', date),
+      err => console.log('Error occurred while getting date: ', err)
+    );
+  }
+
+
+   endDate(){
+      this.datePicker.show({
+        date: new Date(),
+        mode: 'datetime',
+        androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK,
+        allowOldDates: false
+      }).then(
+      date => console.log('Got date: ', date),
+      err => console.log('Error occurred while getting date: ', err)
+    );
+  }
+
+
+
+
+   addAppoiment(){
+
+    this.calendar.requestWritePermission()
+    //this.calendar.createEvent(this.appoiment.name, this.appoiment.number, this.appoiment.info, this.appoiment.startDate, this.appoiment.endDate);
+    //alert('Data de inceput: ' + this.appoiment.startDate);
+    //alert('Data de sfarsit: ' + this.appoiment.endDate);
+   };
+
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!

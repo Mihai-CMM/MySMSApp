@@ -7,8 +7,69 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
+<ion-content padding>
+
+  <h3> Introduceti Programarea</h3>
+    <ion-item>
+      <ion-label floating>Nume Pacient</ion-label>
+      <ion-input [(ngModel)]="appoiment.name">{{appoiment.name}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Numar de telefon</ion-label>
+      <ion-input [(ngModel)]="appoiment.number">{{appoiment.number}}</ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Motiv Programare</ion-label>
+      <ion-textarea [(ngModel)]="appoiment.info">{{appoiment.info}}</ion-textarea>
+    </ion-item>
+
+
+   <!-- Ion specific time picker -->
+   <!--ion-item>
+    <ion-label>Data Inceput Programare</ion-label>
+    <ion-datetime displayFormat="DD MMM YY h:mm A" pickerFormat="YYYY MM dd h mm" [(ngModel)]="appoiment.startDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Data Sfarsit Programare</ion-label>
+    <ion-datetime displayFormat="DD MMM YY h:mm A" pickerFormat="YYYY MM dd hh mm" [(ngModel)]="appoiment.endDate"></ion-datetime>
+  </ion-item-->
+
+    <!--ion-item>
+      <ion-label stacked>Data Programare</ion-label>
+      <ion-textarea [(ngModel)]="appoiment.date">{{appoiment.date}}</ion-textarea>
+    </ion-item-->
+
+
+   <div>
+     <button ion-button outline (click)="startDate()">Selectare Data inceput Programare</button>
+     <button ion-button outline  (click)="endDate()">Selectare Data sfarsit programare</button>
+  </div>
+
+  <button ion-button color="secondary" small icon-left round (click)="addAppoiment()">
+    <ion-icon name='contact'></ion-icon>
+      Adaugare programare
+  </button>
+
+  <button ion-button color="danger" small icon-left round (click)="delAppoiment()">
+    <ion-icon name='trash'></ion-icon>
+      Stergere programare
+  </button>
+
+
+  <button ion-button color="default" small icon-left round (click)="searchAppoiment()">
+    <ion-icon name='search'></ion-icon>
+      Cautare programare
+  </button>
+
+
+
+  <!-- NICE LIST FORMATING BUT HARDCODED FOR NOW -->
+
+  <!--ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-left></ion-icon>
       {{item.title}}
@@ -16,7 +77,10 @@
         {{item.note}}
       </div>
     </button>
-  </ion-list>
+  </ion-list-->
+
+
+
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
   </div>
