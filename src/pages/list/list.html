@@ -28,15 +28,15 @@
 
 
    <!-- Ion specific time picker -->
-   <!--ion-item>
+   <ion-item>
     <ion-label>Data Inceput Programare</ion-label>
-    <ion-datetime displayFormat="DD MMM YY h:mm A" pickerFormat="YYYY MM dd h mm" [(ngModel)]="appoiment.startDate"></ion-datetime>
+    <ion-datetime displayFormat="YYYY-MM-DDTHH:mm" pickerFormat="YYYY MM dd hh mm" [(ngModel)]="startDate"></ion-datetime>
   </ion-item>
 
   <ion-item>
     <ion-label>Data Sfarsit Programare</ion-label>
-    <ion-datetime displayFormat="DD MMM YY h:mm A" pickerFormat="YYYY MM dd hh mm" [(ngModel)]="appoiment.endDate"></ion-datetime>
-  </ion-item-->
+    <ion-datetime displayFormat="YYYY-MM-DDTHH:mm" pickerFormat="YYYY MM dd hh mm" [(ngModel)]="endDate"></ion-datetime>
+  </ion-item>
 
     <!--ion-item>
       <ion-label stacked>Data Programare</ion-label>
@@ -44,10 +44,10 @@
     </ion-item-->
 
 
-   <div>
+   <!--div>
      <button ion-button outline (click)="startDate()">Selectare Data inceput Programare</button>
      <button ion-button outline  (click)="endDate()">Selectare Data sfarsit programare</button>
-  </div>
+  </div-->
 
   <button ion-button color="secondary" small icon-left round (click)="addAppoiment()">
     <ion-icon name='contact'></ion-icon>
